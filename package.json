@@ -1,6 +1,6 @@
 {
     "name": "@yesness/dbcodegen-tools",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "",
     "bin": {
         "dbcodegen-tools": "build/cli.js"

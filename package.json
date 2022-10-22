@@ -6,7 +6,13 @@
         "dbcodegen-tools": "build/cli.js"
     },
     "files": [
-        "build/**/*"
+        "build/**/*",
+        "example/src/schema.ts",
+        "example/.gitignore",
+        "example/package-lock.json",
+        "example/package.json",
+        "example/README.md",
+        "example/tsconfig.json"
     ],
     "scripts": {
         "build": "rimraf ./build && tsc && node updateBin.js",

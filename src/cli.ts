@@ -6,6 +6,8 @@ const EXAMPLE_DIR = path.resolve(__dirname, '../example');
 class Main {
     private static cmdPrefix = 'npx dbcodegen-tools';
 
+    private static usage = `Usage: ${this.cmdPrefix} init [path/to/output/dir]`;
+
     static async main() {
         const [cmd, ...args] = process.argv.slice(2);
         switch (cmd) {
@@ -13,12 +15,12 @@ class Main {
                 await this.init(args);
                 return;
         }
-        console.log(`Usage: ${this.cmdPrefix} (build|init)`);
+        console.log(this.usage);
     }
 
     private static async init(args: string[]) {
         if (args.length !== 1) {
-            console.log(`Usage: ${this.cmdPrefix} init [path/to/output/dir]`);
+            console.log(this.usage);
             return;
         }
         const outDir = path.resolve(process.cwd(), args[0]);

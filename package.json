@@ -14,6 +14,10 @@
         "example/README.md",
         "example/tsconfig.json"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yesness/dbcodegen-tools.git"
+    },
     "scripts": {
         "build": "rimraf ./build && tsc && node updateBin.js",
         "go": "npm run build && npm run start",

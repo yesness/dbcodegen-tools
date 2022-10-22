@@ -1,0 +1,31 @@
+{
+    "name": "@yesness/dbcodegen-tools",
+    "version": "1.0.0",
+    "description": "",
+    "bin": {
+        "dbcodegen-tools": "build/cli.js"
+    },
+    "files": [
+        "build/**/*"
+    ],
+    "scripts": {
+        "build": "rimraf ./build && tsc && node updateBin.js",
+        "go": "npm run build && npm run start",
+        "start": "node ./build/cli.js init exampleOutputDir",
+        "prepare": "npm run build",
+        "pub": "npm publish --access public",
+        "bumpVersion": "npm version patch"
+    },
+    "keywords": [],
+    "author": "rcpooley",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/fs-extra": "^9.0.13",
+        "@types/node": "^17.0.13",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.5.5"
+    },
+    "dependencies": {
+        "fs-extra": "^10.1.0"
+    }
+}

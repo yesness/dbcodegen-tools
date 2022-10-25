@@ -1,5 +1,6 @@
 import path from 'path';
 import fse from 'fs-extra';
+import fs from 'fs';
 
 const EXAMPLE_DIR = path.resolve(__dirname, '../example');
 
@@ -25,6 +26,15 @@ class Main {
         }
         const outDir = path.resolve(process.cwd(), args[0]);
         await fse.copy(EXAMPLE_DIR, outDir);
+        const npmIgnore = path.join(outDir, '.npmignore');
+        if (fs.existsSync(npmIgnore)) {
+            fs.renameSync(npmIgnore, path.join(outDir, '.gitignore'));
+        }
+        const packageJson = path.join(outDir, 'package.json');
+        fs.writeFileSync(
+            packageJson,
+            fs.readFileSync(packageJson, 'utf-8').replace('file:..', '^1.0.0')
+        );
     }
 }
 
